@@ -1,0 +1,230 @@
+<!-- CHEVRON "fa fa-angle-left" http://www.w3schools.com/icons/fontawesome_icons_directional.asp -->
+<!-- <a class="pull-left"> <i class="fa fa-angle-down"></i> Our Reviews</a> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+  <!-- jquery -->
+   <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<style>
+ html,body {
+  background-color: #e5e4da;
+}
+
+.review-button{
+	border: none;
+    background-color: #e5e4da;
+}
+
+.wrap{
+	 border-top:black solid ;
+	 border-bottom:black solid ;
+
+}
+
+.carousel-content {
+    color:black;
+    display:flex;
+    align-items:center;
+}
+
+.carousel-indicators > li{
+	background-color: black;
+	border: black;
+}
+
+.carousel-indicators > li.active{
+	background-color: red;
+	border: red;
+}
+
+.carousel-inner {
+	width: 75%;
+	margin:0 auto;
+}
+
+.glyphicon{
+	color: black;
+}
+.text-carousel {
+  width: 650px;
+  margin: 0 auto;
+  height: auto;
+  padding: 50px;
+}
+
+.text-carousel > a.right.carousel-control{
+  background-color:#e5e4da;
+}
+
+.carousel-control{
+  opacity: 1;
+}
+
+.carousel-control.right, .carousel-control.left {
+   background-color:#e5e4da;
+  background-image:unset;
+}
+
+.carousel-control.right{
+  border-left: 4px solid black;
+}
+
+.carousel-control.left{
+  border-right: 4px solid black;
+}
+
+.panel{
+  border:black solid ;
+}
+
+/* accordian*/
+/* Style the buttons that are used to open and close the accordion panel */
+ button.accordion {
+    background-color: #e5e4da;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordion.active, button.accordion:hover {
+    background-color: #e5e4da;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+    padding: 0 18px;
+    background-color: #e5e4da;
+    display: none;
+}
+
+/* The "show" class is added to the accordion panel when the user clicks on one of the buttons. This will show the panel content */
+div.panel.show {
+    display: block;
+} 
+
+
+@media (max-width: 768px ){
+	.text-carousel{
+	  border-left: none ;
+	  border-right: none ;
+	}
+
+	.wrap{
+		border-top: none ;
+		border-bottom: none ;
+	}
+
+	.carousel-control{
+		display: none;
+	}
+}
+
+</style>
+
+
+<script>
+
+ var toggle_class = function(){
+    var chevron = document.querySelector(".review-button-chevron");
+    // body > button > span
+    console.log("clicked" + chevron.classList.toggle("glyphicon-chevron-up"));
+    console.log("clicked" + chevron.classList.toggle("glyphicon-chevron-down"));
+ }
+
+/*toggle glyphicon on click*/
+// $(document).ready(function(){
+// 	// chevron up/down
+// 	$(".review-button").on("click", function(){
+// 		 $("body > button > span").toggleClass("glyphicon-chevron-up glyphicon-chevron-down");
+// 	});	
+// });
+
+
+</script>    
+
+<!-- 
+<button class="accordion">Our Reviews 	&or; </button>
+<div class="panel text-center">
+    -->
+
+
+<button onclick="toggle_class()" class="review-button" data-toggle="collapse" data-target="#demo">
+	<span class="review-button-chevron glyphicon glyphicon-chevron-down"></span>       Our Reviews
+</button>
+
+<div id="demo" class="collapse">
+<!--Carousel-->
+
+<!-- Test -->
+<div class="container wrap">
+  
+  <div id="myCarousel" class="carousel slide text-carousel" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <p>quote1</p>
+	    <p>name</p>   
+      </div>
+
+      <div class="item">
+      	<p>quote2</p>
+	    <p>name</p>   	
+      </div>
+    
+      <div class="item">
+      	<p>quote3</p>
+	    <p>name</p>
+      </div>
+
+      <div class="item">
+      	<p>quote4</p>
+	    <p>name</p>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+<!-- Test -->
+<!--Carousel-->  
+ </div>
+
+
+</body>
+</html>
