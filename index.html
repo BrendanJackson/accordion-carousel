@@ -1,5 +1,8 @@
+<!-- NOTES -->
 <!-- CHEVRON "fa fa-angle-left" http://www.w3schools.com/icons/fontawesome_icons_directional.asp -->
 <!-- <a class="pull-left"> <i class="fa fa-angle-down"></i> Our Reviews</a> -->
+<!-- fix border (quotes should travil in box on desktop) -->
+<!-- http://stackoverflow.com/questions/26638215/how-to-replace-glyphicons-with-fontawesome-in-bootstrap-3-without-changing-html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +19,9 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -26,7 +32,8 @@
 
 .review-button{
 	border: none;
-    background-color: #e5e4da;
+  background-color: #e5e4da;
+  padding:7px 0;
 }
 
 .wrap{
@@ -54,6 +61,8 @@
 .carousel-inner {
 	width: 75%;
 	margin:0 auto;
+  
+
 }
 
 .glyphicon{
@@ -79,18 +88,22 @@
   background-image:unset;
 }
 
-.carousel-control.right{
-  border-left: 4px solid black;
-}
-
-.carousel-control.left{
-  border-right: 4px solid black;
-}
-
+/*border-left: solid black;
+  border-right: solid black;
+  padding-top: 4em;
+  padding-bottom: 4em;
+  margin-top: -4em;
+  margin-bottom: -4em;
+ */
 .panel{
   border:black solid ;
 }
-
+.carousel-control.left {
+    border-right: 4px solid black;
+}
+.carousel-control.right {
+    border-left: 4px solid black;
+}
 /* accordian*/
 /* Style the buttons that are used to open and close the accordion panel */
  button.accordion {
@@ -122,6 +135,33 @@ div.panel.show {
     display: block;
 } 
 
+#myCarousel{
+  width: inherit;
+}
+
+/*Font Awesome arrows*/
+.fa-angle-left, .fa-angle-right{
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: inline-block;
+  margin-top: -10px;
+  font-size: xx-large;    
+  color:black;
+}   
+  
+
+
+
+/*default content*/
+.m-game-entry--btn{
+  margin-left: 1.5rem;
+  display: block;
+  width: 100%; 
+  background: #E63C2F;
+  color: #E5E4DA;
+  font-family: courier-std,monospace;
+}
 
 @media (max-width: 768px ){
 	.text-carousel{
@@ -129,14 +169,14 @@ div.panel.show {
 	  border-right: none ;
 	}
 
-	.wrap{
-		border-top: none ;
-		border-bottom: none ;
-	}
-
 	.carousel-control{
 		display: none;
 	}
+
+  /*Default*/
+  .m-game-entry--btn{
+    width:unset;
+  }
 }
 
 </style>
@@ -147,8 +187,10 @@ div.panel.show {
  var toggle_class = function(){
     var chevron = document.querySelector(".review-button-chevron");
     // body > button > span
-    console.log("clicked" + chevron.classList.toggle("glyphicon-chevron-up"));
-    console.log("clicked" + chevron.classList.toggle("glyphicon-chevron-down"));
+    // console.log("clicked" + chevron.classList.toggle("glyphicon-chevron-up"));
+    // console.log("clicked" + chevron.classList.toggle("glyphicon-chevron-down"));
+    chevron.classList.toggle("fa-angle-up");
+    chevron.classList.toggle("fa-angle-down");
  }
 
 /*toggle glyphicon on click*/
@@ -174,7 +216,7 @@ div.panel.show {
     
 
 
-<a style="margin-left:1.5rem; display: block; width: 100%;background:#E63C2F; color:#E5E4DA; font-family:courier-std,monospace;" data-toggle="modal" data-target="#gameModal-1-1" class="pull-right btn btn-small btn-secondary m-game-entry--btn" href="http://breakoutv2.staging.wpengine.com/book-at-dallas/">Book at Dallas</a>
+<a data-toggle="modal" data-target="#gameModal-1-1" class="pull-right btn btn-small btn-secondary m-game-entry--btn" href="http://breakoutv2.staging.wpengine.com/book-at-dallas/">Book at Dallas</a>
 
 
 <!-- my code start -->
@@ -185,14 +227,15 @@ div.panel.show {
 
 
 <button onclick="toggle_class()" class="review-button" data-toggle="collapse" data-target="#demo">
-  <span class="review-button-chevron glyphicon glyphicon-chevron-down"></span>       Our Reviews
+  <!-- <span class="review-button-chevron glyphicon glyphicon-chevron-down"></span> -->
+  <span class="review-button-chevron fa fa-angle-down"></span>       Our Reviews
 </button>
 
 <div id="demo" class="collapse">
 <!--Carousel-->
 
 <!-- Test -->
-<div class="container wrap">
+<div class="wrap"><!--container-->
   
   <div id="myCarousel" class="carousel slide text-carousel" data-ride="carousel">
     <!-- Indicators -->
@@ -205,9 +248,9 @@ div.panel.show {
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <p>quote1</p>
-      <p>name</p>   
+     <div class="item active">
+          <p>quote1</p>
+          <p>name</p>   
       </div>
 
       <div class="item">
@@ -228,11 +271,11 @@ div.panel.show {
 
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="fa fa-angle-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
     <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="fa fa-angle-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
