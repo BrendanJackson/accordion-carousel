@@ -65,9 +65,6 @@
 
 }
 
-.glyphicon{
-	color: black;
-}
 .text-carousel {
   width: 650px;
   margin: 0 auto;
@@ -88,13 +85,6 @@
   background-image:unset;
 }
 
-/*border-left: solid black;
-  border-right: solid black;
-  padding-top: 4em;
-  padding-bottom: 4em;
-  margin-top: -4em;
-  margin-bottom: -4em;
- */
 .panel{
   border:black solid ;
 }
@@ -104,6 +94,34 @@
 .carousel-control.right {
     border-left: 4px solid black;
 }
+
+#myCarousel{
+  width: inherit;
+}
+
+/*Font Awesome arrows*/
+.fa-angle-left, .fa-angle-right{
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: inline-block;
+  margin-top: -10px;
+  font-size: xx-large;    
+  color:black;
+}   
+  
+@media (max-width: 768px ){
+  .text-carousel{
+    border-left: none ;
+    border-right: none ;
+  }
+
+  .carousel-control{
+    display: none;
+  }
+
+}
+
 /* accordian*/
 /* Style the buttons that are used to open and close the accordion panel */
  button.accordion {
@@ -117,7 +135,6 @@
     outline: none;
     transition: 0.4s;
 }
-
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 button.accordion.active, button.accordion:hover {
     background-color: #e5e4da;
@@ -135,24 +152,6 @@ div.panel.show {
     display: block;
 } 
 
-#myCarousel{
-  width: inherit;
-}
-
-/*Font Awesome arrows*/
-.fa-angle-left, .fa-angle-right{
-  position: absolute;
-  top: 50%;
-  z-index: 5;
-  display: inline-block;
-  margin-top: -10px;
-  font-size: xx-large;    
-  color:black;
-}   
-  
-
-
-
 /*default content*/
 .m-game-entry--btn{
   margin-left: 1.5rem;
@@ -162,16 +161,7 @@ div.panel.show {
   color: #E5E4DA;
   font-family: courier-std,monospace;
 }
-
 @media (max-width: 768px ){
-	.text-carousel{
-	  border-left: none ;
-	  border-right: none ;
-	}
-
-	.carousel-control{
-		display: none;
-	}
 
   /*Default*/
   .m-game-entry--btn{
@@ -186,11 +176,12 @@ div.panel.show {
 
  var toggle_class = function(){
     var chevron = document.querySelector(".review-button-chevron");
+    chevron.classList.toggle("fa-angle-up");
+    chevron.classList.toggle("fa-angle-down");
     // body > button > span
     // console.log("clicked" + chevron.classList.toggle("glyphicon-chevron-up"));
     // console.log("clicked" + chevron.classList.toggle("glyphicon-chevron-down"));
-    chevron.classList.toggle("fa-angle-up");
-    chevron.classList.toggle("fa-angle-down");
+    
  }
 
 /*toggle glyphicon on click*/
@@ -212,19 +203,9 @@ div.panel.show {
     <div class="youtube-player embed-responsive embed-responsive embed-responsive-16by9 m-game-entry--video" data-id="ZaK7eXNOu6A"><iframe src="//www.youtube.com/embed/ZaK7eXNOu6A?autoplay=0&amp;autohide=2&amp;border=0&amp;wmode=opaque&amp;enablejsapi=1&amp;controls=2&amp;showinfo=0&amp;rel=0&amp;iv_load_policy=3" frameborder="0" id="youtube-iframe"></iframe></div>
   </div>
 
-<!-- start here -->
-    
-
-
 <a data-toggle="modal" data-target="#gameModal-1-1" class="pull-right btn btn-small btn-secondary m-game-entry--btn" href="http://breakoutv2.staging.wpengine.com/book-at-dallas/">Book at Dallas</a>
 
-
-<!-- my code start -->
-<!-- 
-<button class="accordion">Our Reviews   &or; </button>
-<div class="panel text-center">
-    -->
-
+<!-- Accordion-carousel -->
 
 <button onclick="toggle_class()" class="review-button" data-toggle="collapse" data-target="#demo">
   <!-- <span class="review-button-chevron glyphicon glyphicon-chevron-down"></span> -->
@@ -249,23 +230,23 @@ div.panel.show {
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
      <div class="item active">
-          <p>quote1</p>
-          <p>name</p>   
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam libero odio, pellentesque ac egestas sed, dictum at mi. </p>
+          <p>Peter Quill</p>   
       </div>
 
       <div class="item">
-        <p>quote2</p>
-      <p>name</p>     
+        <p>Nulla porta rutrum neque eget tincidunt. Sed sollicitudin vulputate velit. </p>
+      <p>Gamora</p>     
       </div>
     
       <div class="item">
-        <p>quote3</p>
-      <p>name</p>
+        <p>Quisque venenatis ex ut mauris commodo, vel tincidunt nibh tincidunt. </p>
+      <p>Drax</p>
       </div>
 
       <div class="item">
-        <p>quote4</p>
-      <p>name</p>
+        <p>Nullam in consectetur mi. Curabitur libero mi, hendrerit id leo nec, ultricies tincidunt nisi. </p>
+      <p>Groot</p>
       </div>
     </div>
 
@@ -283,7 +264,7 @@ div.panel.show {
 <!-- Test -->
 <!--Carousel-->  
  </div>
-<!-- my code end -->
+<!-- accordion-carousel end -->
 
 
 <!-- end here -->
